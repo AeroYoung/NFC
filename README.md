@@ -1,4 +1,6 @@
 # 基于Android的NFC开发
+	github:https://github.com/aeroyoung
+	last update 2016/10/27 PM 6:00 
 NFC:近距离无线通信技术，分为主动模式和被动模式。
 三种工作模式：
 * 读写模式：由手机(NFC设备)作为发起者，以TAG作为目标者。
@@ -26,16 +28,27 @@ Mifare TAG:ISO 14443，可读可重写，可配置为只读
 
 ### NDEF协议
 NFC Data Exchange Format,NFC数据交换格式，是一种二进制的消息封装格式。
-一个NDEF信息包括若干个Record,每个Record有Header和Payload（内容）。具体可看[NFCForum-TS-NDEF_1.0](https://github.com/AeroYoung/NFC/NFCForum-TS-NDEF_1.0.pdf)的3.2
+一个NDEF信息包括若干个Record,每个Record有Header和Payload（内容）。具体可看[NFCForum-TS-NDEF_1.0](https://github.com/AeroYoung/NFC/blob/master/NFCForum-TS-NDEF_1.0.pdf)的3.2
 
 ### RTD协议
 NFC Record TyPE Definition相当于NDEF的子协议。分为三种：
-* RTD_TEXT 文本信息 [资料](https://github.com/AeroYoung/NFC/NFCForum-TS-RTD_Text_1.0 -Text Record Type Definition 文本记录类型定义.pdf)
-* RTD_URL 网络地址[资料](https://github.com/AeroYoung/NFC/NFCForum-TS-RTD_URI_1.0 -URI Record Type Definition URI记录类型定义.pdf)
-* RTD_SMART_POSTER 智能海报:综合URL,标签等信息.Record里可以包含Record[资料](https://github.com/AeroYoung/NFC/NFCForum-TS-SmartPoster_RTD_1.0-Smart Poster Record Type Definition 智能海报记录类型定义.pdf)
+* RTD_TEXT 文本信息 [资料：NFCForum-TS-RTD_Text_1.0 -Text Record Type Definition 文本记录类型定义.pdf](https://github.com/AeroYoung/NFC/blob/master/NFCForum-TS-RTD_Text_1.0 -Text Record Type Definition 文本记录类型定义.pdf)
+* RTD_URL 网络地址[资料：NFCForum-TS-RTD_URI_1.0 -URI Record Type Definition URI记录类型定义.pdf](https://github.com/AeroYoung/NFC/blob/master/NFCForum-TS-RTD_URI_1.0 -URI Record Type Definition URI记录类型定义.pdf)
+* RTD_SMART_POSTER 智能海报:综合URL,标签等信息.Record里可以包含Record[资料:NFCForum-TS-SmartPoster_RTD_1.0-Smart Poster Record Type Definition 智能海报记录类型定义.pdf](https://github.com/AeroYoung/NFC/blob/master/NFCForum-TS-SmartPoster_RTD_1.0-Smart Poster Record Type Definition 智能海报记录类型定义.pdf)
 
 ### Example
+NDEF数据:  D1 01 0F 54 02 65 6E 68 65 6C 6C 6F 2C 77 6F 72 6C 64 21
+解析结果:  hello,world!
 
+| 16进制        | 二进制/AscII           | 说明  |
+| ------------- |:-------------:| -----:|
+| D1      | 11010001 | 这是一个Record的Header,每一位对应一个定义，见NFCForum-TS-NDEF_1.0的第三章 |
+| 01      |  00000001     | type length=1   |
+| 0F | 00001111  |    内容(payload)长度=15 |
+| 54 | ascii='T'      |    RTD协议文本类型 |
+| 02 |   00000010    |  语言码长度LANG=2 |
+| 65 6E |  ascii="en"  |  英语 |
+| 其他 | 全部转为ascii      |  hello,world |
 
 ## Android NFC API
 ### 三重过滤机制
