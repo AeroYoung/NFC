@@ -57,3 +57,16 @@ NDEF数据:  D1 01 0F 54 02 65 6E 68 65 6C 6C 6F 2C 77 6F 72 6C 64 21
 2. TECH_DISCOVERED 根据标签中所支持的数据存储格式进行匹配
 3. TAG_DISCORVERED 最后一重
 
+TECH_DISCOVERED模式中要列出支持的数据格式，有以下这些：
+
+|TagTechnology |	The interface that all tag technology classes must implement.
+| ------------- |-------------:|
+|NfcA |	Provides access to NFC-A (ISO 14443-3A) properties and I/O operations.|
+|NfcB |	Provides access to NFC-B (ISO 14443-3B) properties and I/O operations.|
+|NfcF |	Provides access to NFC-F (JIS 6319-4) properties and I/O operations.|
+|NfcV |	Provides access to NFC-V (ISO 15693) properties and I/O operations.|
+|IsoDep | 	Provides access to ISO-DEP (ISO 14443-4) properties and I/O operations.|
+|Ndef |	Provides access to NDEF data and operations on NFC tags that have been formatted as NDEF.|
+|NdefFormatable |	Provides a format operations for tags that may be NDEF formattable.|
+
+这个表的意思也就说不同的芯片（解决方案、采用不同的标准实现的）卡中数据格式是不一样的，比如之前我们提到的MIFARE Classic数据格式就是NfcA，比如深圳通公交卡，MIFARE DESFire数据格式是IsoDep，我们使用的二代身份证用的就是NfcB,Felica用的就是NfcF,德州仪器的VicinityCard卡用的是NfcV,而Android分享文件就是实用的Ndef格式传输数据。
