@@ -4,18 +4,16 @@
 
 **目录**
 <!-- TOC -->
-
-- [基于Android的NFC开发](#基于android的nfc开发)
-    - [NFC协议基础](#nfc协议基础)
-        - [技术标准和规范](#技术标准和规范)
-        - [TAG](#tag)
-            - [NFC Forum定义的四种tag类型](#nfc-forum定义的四种tag类型)
-            - [NXP特定的tag类型](#nxp特定的tag类型)
-        - [NDEF协议](#ndef协议)
-        - [RTD协议](#rtd协议)
-        - [Example](#example)
-    - [Android NFC API](#android-nfc-api)
-        - [三重过滤机制](#三重过滤机制)
+- [NFC协议基础](#nfc协议基础)
+    - [技术标准和规范](#技术标准和规范)
+    - [TAG](#tag)
+        - [NFC Forum定义的四种tag类型](#nfc-forum定义的四种tag类型)
+        - [NXP特定的tag类型](#nxp特定的tag类型)
+    - [NDEF协议](#ndef协议)
+    - [RTD协议](#rtd协议)
+    - [Example](#example)
+- [Android NFC API](#android-nfc-api)
+    - [三重过滤机制](#三重过滤机制)
 
 <!-- /TOC -->
 
