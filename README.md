@@ -85,4 +85,4 @@ TECH_DISCOVERED模式中要列出支持的数据格式，有以下这些：
 |Ndef |	Provides access to NDEF data and operations on NFC tags that have been formatted as NDEF.|
 |NdefFormatable |	Provides a format operations for tags that may be NDEF formattable.|
 
-这个表的意思也就说不同的芯片（解决方案、采用不同的标准实现的）卡中数据格式是不一样的，比如之前我们提到的MIFARE Classic数据格式就是NfcA，比如深圳通公交卡，MIFARE DESFire数据格式是IsoDep，我们使用的二代身份证用的就是NfcB,Felica用的就是NfcF,德州仪器的VicinityCard卡用的是NfcV,而Android分享文件就是实用的Ndef格式传输数据。
+这个表说明不同的芯片（解决方案、采用不同的标准实现的）卡中数据格式是不一样的，比如之前我们提到的MIFARE Classic数据格式就是NfcA，比如深圳通公交卡，MIFARE DESFire数据格式是IsoDep，我们使用的二代身份证用的就是NfcB,Felica用的就是NfcF,德州仪器的VicinityCard卡用的是NfcV,而Android分享文件就是实用的Ndef格式传输数据。
